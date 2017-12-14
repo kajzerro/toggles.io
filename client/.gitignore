@@ -1,0 +1,8 @@
+# node modules directory
+node_modules/
+
+# directory containing build artifacts
+build/
+
+# coverage reports from jest
+coverage/
