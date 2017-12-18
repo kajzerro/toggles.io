@@ -47,12 +47,23 @@ provider:
 
 # you can add packaging information here
 package:
-  artifact: target/hello-dev.jar
+  artifact: target/users-service-dev.jar
 
 functions:
   hello:
     handler: com.serverless.Handler
-
+  preSignUp:
+      handler: preSignUp.handler
+      events:
+        - cognitoUserPool:
+            pool: toggles_user_pool
+            trigger: PostAuthentication
+  postConfirmation:
+      handler: postConfirmation.handler
+      events:
+        - cognitoUserPool:
+            pool: toggles_user_pool
+            trigger: PostConfirmation
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -97,3 +108,4 @@ functions:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
+
