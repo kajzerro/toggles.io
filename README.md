@@ -23,3 +23,18 @@ own `README` file, uses it's own build system and dependency manager. Please
 consult `README` in these directories for further details on testing, building
 and deploying `client` and `api` part.
 
+## Shared resources
+
+TODO:
+
+Cognito User Pool is a resource that needs to be shared between client
+and server, *but* the client needs to know pool id, and client app id at buildtime,
+which are know only *after* the user pool was created. This is why when
+doing deployment we first need to create a user pool and then provide the
+pool id and client app id to the "client" and "api" part at build time.
+
+For client this will be done through passing environment variables.
+For api this can probably be done throug properties (?).
+
+Anyways, we need a separate `serverless.yml` file that will create the user pool
+here. 

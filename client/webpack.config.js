@@ -4,8 +4,8 @@
   const HtmlWebpackPlugin = require('html-webpack-plugin');
   const InterpolateHtmlPlugin = require('interpolate-html-plugin');
 
-  assert(process.env.NODE_ENV, 'NODE_ENV environment variable must be set!')
-  assert(process.env.API_ROOT, 'API_ROOT environment variable must be set!')
+  assert(process.env.NODE_ENV, 'NODE_ENV environment variable must be set!');
+  assert(process.env.API_ROOT, 'API_ROOT environment variable must be set!');
 
   module.exports = {
     entry: './src/ts/index.tsx',
