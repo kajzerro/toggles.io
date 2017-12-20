@@ -1,0 +1,60 @@
+service: ${env:APP_ID}-toggles-io-user-pool
+
+frameworkVersion: ">=1.2.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: ${env:STAGE}
+  region: ${env:REGION}
+
+resources:
+  Resources:
+    TogglesUserPool:
+      Type: AWS::Cognito::UserPool
+      Properties:
+        UserPoolName: ${env:APP_ID}-toggles-io-user-pool
+        AliasAttributes:
+          - email
+        AutoVerifiedAttributes:
+          - email
+    TogglesUserPoolClient:
+      Type: AWS::Cognito::UserPoolClient
+      Properties:
+        ClientName: ${env:APP_ID}-toggles-io-client
+        UserPoolId:
+          Ref: TogglesUserPool
+    TogglesUserPoolUser:
+      Type: AWS::Cognito::UserPoolUser
+      Properties:
+        UserPoolId:
+          Ref: TogglesUserPool
+        Username: ${env:ADMIN_USERNAME}
+        UserAttributes:
+          - Name: name
+            Value: ${env:ADMIN_NAME}
+          - Name: email
+            Value: ${env:ADMIN_EMAIL}
+    TogglesUserPoolGroupAdmins:
+      Type: AWS::Cognito::UserPoolGroup
+      Properties:
+        GroupName: admins
+        UserPoolId:
+          Ref: TogglesUserPool
+    TogglesUserPoolGroupAdmisAdminAttachment:
+      Type: AWS::Cognito::UserPoolUserToGroupAttachment
+      Properties:
+        GroupName:
+          Ref: TogglesUserPoolGroupAdmins
+        Username:
+          Ref: TogglesUserPoolUser
+        UserPoolId:
+          Ref: TogglesUserPool
+
+  Outputs:
+    TogglesUserPoolOutput:
+      Value:
+        Ref: TogglesUserPool
+    TogglesUserPoolClientOutput:
+      Value:
+        Ref: TogglesUserPoolClient

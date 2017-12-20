@@ -49,6 +49,8 @@
     plugins: [
       new InterpolateHtmlPlugin({
         API_ROOT: process.env.API_ROOT,
+        CLIENT_APP_ID: process.env.CLIENT_APP_ID,
+        USER_POOL_ID: process.env.USER_POOL_ID
       }),
       new HtmlWebpackPlugin({
         inject: true,
