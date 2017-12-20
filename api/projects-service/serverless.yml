@@ -1,0 +1,9 @@
+service: projects-service
+
+provider:
+  name: aws
+  runtime: java8
+
+package:
+  artifact: target/projects-service-dev.jar
+
