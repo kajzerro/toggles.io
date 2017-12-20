@@ -2,15 +2,16 @@
   "name": "toggles-io-client",
   "version": "1.0.0",
   "description": "Single page web application for toggles.io",
-  "repository": "https://github.com/JackPu/yarn-react-webpack-seed",
+  "repository": "https://github.com/pioneerlabs/toggles.io.git",
   "author": "Karol Majta <karol@pioneerlabs.io>",
   "license": "GPL",
   "private": true,
   "scripts": {
-    "lint": "node_modules/.bin/tslint src/**/*.ts{,x}",
-    "test": "node_modules/.bin/jest",
-    "build": "node_modules/.bin/webpack",
-    "develop": "NODE_ENV=development node_modules/.bin/webpack-dev-server --content-base build/"
+    "lint": "tslint src/**/*.ts{,x}",
+    "test": "jest",
+    "build": "webpack",
+    "develop": "NODE_ENV=development webpack-dev-server --content-base build/",
+    "deploy": "serverless deploy --verbose && serverless syncToS3 && serverless domainInfo"
   },
   "jest": {
     "transform": {
@@ -33,10 +34,12 @@
     "@types/radium": "^0.18.23",
     "@types/react": "^16.0.30",
     "@types/react-dom": "^16.0.3",
+    "@types/react-redux": "^5.0.14",
     "@types/react-router": "^4.0.19",
     "radium": "^0.19.6",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
     "react-router": "^4.2.0"
   },
   "devDependencies": {
@@ -51,6 +54,8 @@
     "interpolate-html-plugin": "^2.0.0",
     "jest": "^21.2.1",
     "raf": "^3.4.0",
+    "serverless": "^1.24.1",
+    "serverless-single-page-app-plugin": "file:./../serverless-plugins/serverless-single-page-app-plugin",
     "ts-jest": "^21.2.4",
     "ts-loader": "^3.2.0",
     "tslint": "^5.8.0",

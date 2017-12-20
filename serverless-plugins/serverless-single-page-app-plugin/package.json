@@ -1,0 +1,9 @@
+{
+  "name": "serverless-single-page-app-plugin",
+  "version": "1.0.0",
+  "description": "A plugin for Serverless Framework, to simplify deploying Single Page Application using S3 and CloudFront.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "GPL"
+}
