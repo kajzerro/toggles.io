@@ -37,11 +37,19 @@ In general any option supported by **jest** will be supported when running `yarn
 
 You can run development server using:
 
-    $ API_ROOT=<api url> yarn develop
+    $ CLIENT_APP_ID=<client app id> USER_POOL_ID=<user pool id> API_ROOT=<api url> yarn develop
 
 The development server will start on **http://localhost:8080**. The app is configured
 to hot-reload JS code, and styles (styles are done with **radium**, to they're effectively
-JS too). THE **API_ROOT** environment variable is required and must point to the url
+JS too).
+
+**CLIENT_APP_ID** should be set to whatever was given to you as *TogglesUserPoolClientOutput* after
+successfuly creating the shared resources (please see README.md in the root directory for details) 
+
+**USER_POOL_ID** should be set to whatever was given to you as *TogglesUserPoolOutput* after
+successfuly creating the shared resources (please see README.md in the root directory for details)
+
+**API_ROOT** environment variable is required and must point to the url
 where API for the application is hosted (i.e. **https://api.toggles.io**)
 
 **NODE_ENV** environment variable is always set to **development** when running the dev
@@ -51,10 +59,11 @@ server.
 
 You can build the client application using:
 
-    $ API_ROOT=<api url> NODE_ENV=<nodeenv> yarn build
+    $ CLIENT_APP_ID=<client app id> USER_POOL_ID=<user pool id> API_ROOT=<api url> NODE_ENV=<nodeenv> yarn build
 
-**API_ROOT** environment variable works exactly like for the development server. Please note
-that you must set **NODE_ENV** and it should be one of **production** or **development**.
+**CLIENT_APP_ID**, **USER_POOL_ID** and **API_ROOT** environment variables work exactly
+like for the development server. Please note that you must set **NODE_ENV** and it
+should be one of **production** or **development**.
 
 Setting **NODE_ENV** to production will output a production ready build, while **NODE_ENV**
 set to **development** will output unminified production build with sourcemaps.

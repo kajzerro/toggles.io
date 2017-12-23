@@ -23,18 +23,45 @@ own `README` file, uses it's own build system and dependency manager. Please
 consult `README` in these directories for further details on testing, building
 and deploying `client` and `api` part.
 
+## Before you install
+
+Before you proceed any further please makes sure that you have an Amazon AWS
+account and that you know your **AWS_ACCESS_KEY_ID** and **AWS_SECRET_ACCESS_KEY**.
+Make sure that these variables are exported in your teminal. You can do this
+by issuing:
+
+    export AWS_ACCESS_KEY_ID=<your access key id>
+    export AWS_SECRET_ACCESS_KEY=<your secret access key>
+
+Making sure of this can save you a lot of hair-pulling later.
+
 ## Shared resources
 
-TODO:
+This is a summary of shared resources that are used by both `client` and
+`api` part of the project. Please make sure to create them before you proceed
+any further by running:
 
-Cognito User Pool is a resource that needs to be shared between client
-and server, *but* the client needs to know pool id, and client app id at buildtime,
-which are know only *after* the user pool was created. This is why when
-doing deployment we first need to create a user pool and then provide the
-pool id and client app id to the "client" and "api" part at build time.
+    $ STAGE=dev \
+    	REGION=<aws region> \
+    	APP_ID=<unique app id> \
+    	ADMIN_USERNAME=<username of first admin user> \
+        ADMIN_EMAIL=<email of first admin user> \
+        ADMIN_NAME=<full name of first admin user> \
+    	serverless deploy --verbose
 
-For client this will be done through passing environment variables.
-For api this can probably be done throug properties (?).
+This command will create all required resources to be shared between the client
+and the api part of the project. Please note the output of this command (**Stack Outputs**).
+You will need it in further steps.
 
-Anyways, we need a separate `serverless.yml` file that will create the user pool
-here. 
+## Shared resources explained
+
+### Amazon Cognito User Pool
+
+The cognito user pool is a AWS Service that is used by both client and api for
+managing users.
+
+## Going further
+
+If you have successfuly createdall shared resources you can go to `api`
+and `client` directories (in that order)  and see their "README.md" files
+on info how to deploy them.

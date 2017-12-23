@@ -6,7 +6,7 @@ plugins:
   - serverless-single-page-app-plugin
 
 custom:
-  s3Bucket: client.${env:STAGE}.${env:APP_ID}
+  s3Bucket: toggles-io-client.${env:STAGE}.${env:APP_ID}
   s3LocalPath: build
 
 provider:
