@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render a authorized routes when user is authorized 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "blank",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <div>
+    <TopBar
+      isLoggedIn={true}
+      onLogout={null}
+      username={null}
+    />
+    <Switch>
+      <Route
+        exact={true}
+        path="/"
+      >
+        <Redirect
+          push={false}
+          to="/dashboard/projects"
+        />
+      </Route>
+      <Route
+        component={[Function]}
+        path="/auth"
+      />
+      <Route
+        component={[Function]}
+        path="/dashboard"
+      />
+      <Route
+        component={[Function]}
+      />
+    </Switch>
+    <TransientErrors
+      errors={Array []}
+      onRemove={null}
+    />
+  </div>
+</Router>
+`;
+
+exports[`App should render a unauthorized routes when user is unathorized 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "blank",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <div>
+    <TopBar
+      isLoggedIn={false}
+      onLogout={null}
+      username="mike"
+    />
+    <Switch>
+      <Route
+        exact={true}
+        path="/"
+      >
+        <Redirect
+          push={false}
+          to="/auth/login"
+        />
+      </Route>
+      <Route
+        component={[Function]}
+        path="/auth"
+      />
+      <Route
+        component={[Function]}
+        path="/dashboard"
+      />
+      <Route
+        component={[Function]}
+      />
+    </Switch>
+    <TransientErrors
+      errors={Array []}
+      onRemove={null}
+    />
+  </div>
+</Router>
+`;
