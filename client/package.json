@@ -11,7 +11,7 @@
     "test": "jest",
     "build": "webpack",
     "develop": "NODE_ENV=development webpack-dev-server --content-base build/",
-    "deploy": "serverless deploy --verbose && serverless syncToS3 && serverless domainInfo"
+    "deploy": "serverless deploy --verbose && serverless syncToS3 && serverless purgeCache && serverless domainInfo"
   },
   "jest": {
     "transform": {

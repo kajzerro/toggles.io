@@ -80,3 +80,6 @@ resources:
     WebAppCloudFrontDistributionOutput:
       Value:
         'Fn::GetAtt': [ WebAppCloudFrontDistribution, DomainName ]
+    WebAppCloudFrontDistributionIdOutput:
+      Value:
+        Ref: WebAppCloudFrontDistribution

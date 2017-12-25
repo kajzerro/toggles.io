@@ -120,7 +120,7 @@ The usual workflow for the **client** part of this repository would be like this
     $ yarn test --watch
     $
     $ # build the production version
-    $ API_ROOT=https://prod.api.toggles.mycompany.com NODE_ENV=production yarn build
+    $ CLIENT_APP_ID=<client app id> USER_POOL_ID=<user pool id> API_ROOT=https://prod.api.toggles.mycompany.com NODE_ENV=production yarn build
     $
     $ # deploy and sync the app to aws
-    # APP_ID=toggles.mycompany.com STAGE=prod REGION=eu-west-2 yarn deploy
+    $ APP_ID=toggles.mycompany.com STAGE=prod REGION=eu-west-2 yarn deploy

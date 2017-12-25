@@ -18,6 +18,23 @@ resources:
           - email
         AutoVerifiedAttributes:
           - email
+        Schema:
+          - Name: email
+            AttributeDataType: String
+            DeveloperOnlyAttribute: false
+            Mutable: false
+            Required: true
+            StringAttributeConstraints:
+              MinLength: 0
+              MaxLength: 2048
+          - Name: name
+            AttributeDataType: String
+            DeveloperOnlyAttribute: false
+            Mutable: false
+            Required: true
+            StringAttributeConstraints:
+              MinLength: 0
+              MaxLength: 2048
     TogglesUserPoolClient:
       Type: AWS::Cognito::UserPoolClient
       Properties:
